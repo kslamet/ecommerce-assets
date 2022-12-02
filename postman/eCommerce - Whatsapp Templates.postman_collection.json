@@ -1,0 +1,933 @@
+{
+	"info": {
+		"_postman_id": "6357dc33-5e42-4b81-b43b-db3dcaa46218",
+		"name": "eCommerce - Whatsapp Templates",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1WelcomeAndSubscribe Create Quick Reply",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"friendlyName\": \"WelcomeAndSubscribe\",\n    \"language\": \"en\",\n    \"variables\": {\n        \"firstname\": \"Bruno\"\n    },\n    \"types\": {\n        \"twilio/quick-reply\": {\n                    \"body\": \"Welcome {{firstname}} to Beautiful Homes! To get notified on the latest and greatest in our product lineup, we highly encourage you to subscribe to us on WhatsApp!\",\n                    \"actions\": [\n                        {\n                            \"title\": \"Subscribe! 😃\",\n                            \"type\": \"QUICK_REPLY\"\n                        },\n                        {\n                            \"title\": \"Maybe later 😢\",\n                            \"type\": \"QUICK_REPLY\"\n                        }\n                    ]\n                },\n        \"twilio/text\": {\n            \"body\": \"Welcome {{firstname}} to Beautiful Homes! To get notified on the latest and greatest in our product lineup, we highly encourage you to subscribe to us on WhatsApp!\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content"
+					]
+				},
+				"description": "Quick reply"
+			},
+			"response": []
+		},
+		{
+			"name": "1Send WelcomeAndSubscribe",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "To",
+							"value": "whatsapp:+6592396026",
+							"type": "default"
+						},
+						{
+							"key": "From",
+							"value": "MGc598590ce0a254cc6d7c82aa98a84c86",
+							"type": "default"
+						},
+						{
+							"key": "ContentSid",
+							"value": "HX6d8844ef1755e4795281f78a203ee369",
+							"type": "default"
+						},
+						{
+							"key": "ContentVariables",
+							"value": "{\"firstname\": \"Bruno\"}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.twilio.com/2010-04-01/Accounts/ACb7875cbb5d9898c8c5f15d7153af353f/Messages",
+					"protocol": "https",
+					"host": [
+						"api",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"2010-04-01",
+						"Accounts",
+						"ACb7875cbb5d9898c8c5f15d7153af353f",
+						"Messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2GetPreferences Create List Picker",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"friendlyName\": \"GetPreferences\",\n    \"language\": \"en\",\n    \"variables\": {\n        \"firstname\": \"Bruno\"\n    },\n    \"types\": {\n        \"twilio/list-picker\": {\n            \"body\": \"We noticed that you are new to the platform. Can you tell us more about your style preferences?\",\n            \"button\": \"Preferred style\",\n            \"items\": [\n                {\n                    \"id\": \"1\",\n                    \"description\": \"traditional elegance with contemporary lines and textiles\",\n                    \"item\": \"Transitional\"\n                },\n                {\n                    \"id\": \"2\",\n                    \"description\": \"dark wood, ornately detailed\",\n                    \"item\": \"Traditional\"\n                },\n                {\n                    \"id\": \"3\",\n                    \"description\": \"clean lines, smooth, sleek surfaces\",\n                    \"item\": \"Modern\"\n                },\n                {\n                    \"id\": \"4\",\n                    \"description\": \"anything of the present moment\",\n                    \"item\": \"Contemporary\"\n                },\n                {\n                    \"id\": \"5\",\n                    \"description\": \"uncomplicated, clean lines, and simple finishes\",\n                    \"item\": \"Minimalist\"\n                },\n                {\n                    \"id\": \"6\",\n                    \"description\": \"free-spirited aesthetic that mixes different cultures\",\n                    \"item\": \"Bohemian\"\n                }\n            ]\n        },\n       \"twilio/text\": {\n            \"body\": \"We noticed that you are new to the platform. Can you tell us more about your style preferences?\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content"
+					]
+				},
+				"description": "List picker"
+			},
+			"response": []
+		},
+		{
+			"name": "2Send GetPreferences",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "To",
+							"value": "whatsapp:+6592396026",
+							"type": "default"
+						},
+						{
+							"key": "From",
+							"value": "MGc598590ce0a254cc6d7c82aa98a84c86",
+							"type": "default"
+						},
+						{
+							"key": "ContentSid",
+							"value": "HX584cfb91a3ddfc8b34d07270d1a896f4",
+							"type": "default"
+						},
+						{
+							"key": "ContentVariables",
+							"value": "{\"firstname\": \"Bruno\"}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.twilio.com/2010-04-01/Accounts/ACb7875cbb5d9898c8c5f15d7153af353f/Messages",
+					"protocol": "https",
+					"host": [
+						"api",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"2010-04-01",
+						"Accounts",
+						"ACb7875cbb5d9898c8c5f15d7153af353f",
+						"Messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3ProductInterest Create Media",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"friendlyName\": \"LimitedProducts\",\n    \"language\": \"en\",\n    \"variables\": {\n        \"firstname\": \"Bruno\",\n        \"product\":\"Minimal Stand\",\n        \"inventory\":\"3\"\n    },\n    \"types\": {\n        \"twilio/media\": {\n                    \"body\": \"Hey {{firstname}}, are you still interested in {{product}}? Hurry up, we only have {{inventory}} pieces left!\",\n                    \"media\": [\"https://tumbleweed-guanaco-1464.twil.io/assets/minimal_stand.png\"]\n                },\n        \"twilio/text\": {\n            \"body\": \"Hey {{firstname}}, are you still interested in {{product}}? Hurry up, we only have {{inventory}} pieces left!\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content"
+					]
+				},
+				"description": "Quick reply"
+			},
+			"response": []
+		},
+		{
+			"name": "3Send ProductInterest",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "To",
+							"value": "whatsapp:+6592396026",
+							"type": "default"
+						},
+						{
+							"key": "From",
+							"value": "MGc598590ce0a254cc6d7c82aa98a84c86",
+							"type": "default"
+						},
+						{
+							"key": "ContentSid",
+							"value": "HXb10bf78c5b9730cf4b6c131fbdc04eff",
+							"type": "default"
+						},
+						{
+							"key": "ContentVariables",
+							"value": "{\"firstname\": \"Bruno\",\"product\":\"Minimal Stand\",\"inventory\":\"3\"}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.twilio.com/2010-04-01/Accounts/ACb7875cbb5d9898c8c5f15d7153af353f/Messages",
+					"protocol": "https",
+					"host": [
+						"api",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"2010-04-01",
+						"Accounts",
+						"ACb7875cbb5d9898c8c5f15d7153af353f",
+						"Messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4LimitedTimePromo Create CTA",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"friendlyName\": \"LimitedTimePromo2\",\n    \"language\": \"en\",\n    \"variables\": {\n        \"promo\": \"BETTERHOME\",\n        \"date\": \"6 December\",\n        \"firstname\": \"Bruno\"\n    },\n    \"types\": {\n        \"twilio/call-to-action\": {\n                    \"body\": \"{{firstname}}, we are having a limited time promo code: use *{{promo}}* to get 10% off all orders on Beautiful Homes, valid till {{date}}! It's time to get all the items you want!\",\n                    \"actions\": [\n                        {\n                            \"url\": \"https://www.twilio.com/messaging/whatsapp\",\n                            \"title\": \"Go to Cart\",\n                            \"type\": \"URL\"\n                        },\n                        {\n                            \"phone\": \"+16193042340\",\n                            \"title\": \"Call Us\",\n                            \"type\": \"PHONE_NUMBER\"\n                        }\n                    ]\n                },\n        \"twilio/text\": {\n            \"body\": \"{{firstname}}, we are having a limited time promo code: use *{{promo}}* to get 10% off all orders on Beautiful Homes, valid till {{date}}! It's time to get all the items you want!\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content"
+					]
+				},
+				"description": "List picker"
+			},
+			"response": []
+		},
+		{
+			"name": "4BSubmit CTA to Whatsapp approval",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"limited_time_promo2\",\n  \"category\": \"marketing\"\n}"
+				},
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content/HXdc61e98885d8952e3c008bfa866ddfb7/ApprovalRequests/whatsapp",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content",
+						"HXdc61e98885d8952e3c008bfa866ddfb7",
+						"ApprovalRequests",
+						"whatsapp"
+					]
+				},
+				"description": "Create content"
+			},
+			"response": []
+		},
+		{
+			"name": "4C Get WA approval request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content/HXdc61e98885d8952e3c008bfa866ddfb7/ApprovalRequests",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content",
+						"HXdc61e98885d8952e3c008bfa866ddfb7",
+						"ApprovalRequests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4Send LimitedTimePromo (req approval)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "To",
+							"value": "whatsapp:+6592396026",
+							"type": "default"
+						},
+						{
+							"key": "From",
+							"value": "MGc598590ce0a254cc6d7c82aa98a84c86",
+							"type": "default"
+						},
+						{
+							"key": "ContentSid",
+							"value": "HXdc61e98885d8952e3c008bfa866ddfb7",
+							"type": "default"
+						},
+						{
+							"key": "ContentVariables",
+							"value": "{\"promo\": \"BETTERHOME\",\"date\": \"6 December\",\"firstname\": \"Bruno\"}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.twilio.com/2010-04-01/Accounts/ACb7875cbb5d9898c8c5f15d7153af353f/Messages",
+					"protocol": "https",
+					"host": [
+						"api",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"2010-04-01",
+						"Accounts",
+						"ACb7875cbb5d9898c8c5f15d7153af353f",
+						"Messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5Location Create location",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"friendlyName\": \"location\",\n    \"language\": \"en\",\n    \"variables\": {\n        \"delivery_address\": \"9 Marina View, West Tower #11-07, Singapore 018937\"\n    },\n    \"types\": {\n        \"twilio/text\": {\n            \"body\": \"Delivery address is located at {{delivery_address}}\"\n        },\n        \"twilio/location\": {\n            \"latitude\": 1.2785638,\n            \"longitude\": 103.8517303,\n            \"label\": \"9 Marina View\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content"
+					]
+				},
+				"description": "List picker"
+			},
+			"response": []
+		},
+		{
+			"name": "5Send Location",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "To",
+							"value": "whatsapp:+6592396026",
+							"type": "default"
+						},
+						{
+							"key": "From",
+							"value": "MGc598590ce0a254cc6d7c82aa98a84c86",
+							"type": "default"
+						},
+						{
+							"key": "ContentSid",
+							"value": "HX2831723544ff929d54329e964ef5e199",
+							"type": "default"
+						},
+						{
+							"key": "ContentVariables",
+							"value": "{\"delivery_address\": \"9 Marina View, West Tower #11-07, Singapore 018937\"}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.twilio.com/2010-04-01/Accounts/ACb7875cbb5d9898c8c5f15d7153af353f/Messages",
+					"protocol": "https",
+					"host": [
+						"api",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"2010-04-01",
+						"Accounts",
+						"ACb7875cbb5d9898c8c5f15d7153af353f",
+						"Messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6order confirmation Create CTA",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"friendlyName\": \"Confirmation Message\",\n    \"language\": \"en\",\n    \"variables\": {\n        \"promo\": \"BETTERHOME\",\n        \"date\": \"6 December\",\n        \"timeslot\": \"9AM and 12PM\"\n    },\n    \"types\": {\n        \"twilio/call-to-action\": {\n                    \"body\": \"Thank you for confirming your delivery location and schedule. You should expect the items delivered on {{date}} between {{timeslot}}. \\n\\nTo thank you for your order, you are also eligible for 10% off your next order with promo code *{{promo}}*! \\n\\nFeel free to come back to our site at any time, or call us below if you have inquiries about your order!\",\n                    \"actions\": [\n                        {\n                            \"url\": \"https://www.twilio.com/messaging/whatsapp\",\n                            \"title\": \"Go to Website\",\n                            \"type\": \"URL\"\n                        },\n                        {\n                            \"phone\": \"+16193042340\",\n                            \"title\": \"Call Us\",\n                            \"type\": \"PHONE_NUMBER\"\n                        }\n                    ]\n                },\n        \"twilio/text\": {\n            \"body\": \"Thank you for confirming your delivery location and schedule. You should expect the items delivered on {{date}} between {{timeslot}}. \\n\\nTo thank you for your order, you are also eligible for 10% off your next order with promo code *{{promo}}*! \\n\\nFeel free to come back to our site at any time, or call us below if you have inquiries about your order!\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content"
+					]
+				},
+				"description": "List picker"
+			},
+			"response": []
+		},
+		{
+			"name": "6B Submit CTA to Whatsapp approval",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"confirmation_message\",\n  \"category\": \"marketing\"\n}"
+				},
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content/HX0526d20d63dd70f8dec0fa546c90996c/ApprovalRequests/whatsapp",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content",
+						"HX0526d20d63dd70f8dec0fa546c90996c",
+						"ApprovalRequests",
+						"whatsapp"
+					]
+				},
+				"description": "Create content"
+			},
+			"response": []
+		},
+		{
+			"name": "6C Get WA approval request Copy",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QUM1ODc0MDE2ZGI1MjMwZThkNzE0NDE3NTE3YjZkMmIxZTpjYWQ0ZDkyZWU0NTgyNWY3YjBkM2RhZTcyODVjMDUwZQ==",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://content.twilio.com/v1/Content/HX0526d20d63dd70f8dec0fa546c90996c/ApprovalRequests",
+					"protocol": "https",
+					"host": [
+						"content",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Content",
+						"HX0526d20d63dd70f8dec0fa546c90996c",
+						"ApprovalRequests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6Send order confirmation CTA (req approval)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "To",
+							"value": "whatsapp:+6592396026",
+							"type": "default"
+						},
+						{
+							"key": "From",
+							"value": "MGc598590ce0a254cc6d7c82aa98a84c86",
+							"type": "default"
+						},
+						{
+							"key": "ContentSid",
+							"value": "HX0526d20d63dd70f8dec0fa546c90996c",
+							"type": "default"
+						},
+						{
+							"key": "ContentVariables",
+							"value": "{\"promo\": \"BEAUTIFUL\",\"date\": \"6 December\",\"timeslot\": \"9AM and 12PM\"}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.twilio.com/2010-04-01/Accounts/ACb7875cbb5d9898c8c5f15d7153af353f/Messages",
+					"protocol": "https",
+					"host": [
+						"api",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"2010-04-01",
+						"Accounts",
+						"ACb7875cbb5d9898c8c5f15d7153af353f",
+						"Messages"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
